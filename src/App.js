@@ -33,13 +33,13 @@ class App extends Component {
     }
   }
 
-  selectAuthor = async authorID => {
+  selectAuthor = async author => {
     this.setState({ loading: true });
     try {
-      const res = await instance.get(`/api/authors/${authorID}/`);
-      const author = res.data;
+      const res = await instance.get(`/api/authors/${author.id}/`);
+      const selectedAuthor = res.data;
       this.setState({
-        currentAuthor: author,
+        currentAuthor: selectedAuthor,
         loading: false
       });
     } catch (err) {
